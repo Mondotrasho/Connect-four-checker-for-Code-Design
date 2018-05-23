@@ -29,6 +29,16 @@ int main()
 	}
 
 //## CHECK ##
+	//Option 4
+    //	checkForWin()
+	//	For X
+	//		For Y working backwards from 5, Y--
+	//		If the next 3 tiles to the right match the current tile, return true
+	//		If the 3 tiles to the above match the current tile, return true
+	//		If the 3 tiles diagonally to the right and down match the current tile, return true
+	//		If the 3 tiles diagonally to the right and up match the current tile, return true
+	//		If the tile is empty, CONTINUE(jump out of Y for loop into X at next X pos)
+
 
 //	for(int i;i<=6;i++) //check it
 	{
