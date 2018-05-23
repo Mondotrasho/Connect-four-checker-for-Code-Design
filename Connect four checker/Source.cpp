@@ -5,7 +5,7 @@
 
 int main()
 {
-	int board[7][6]; // the board X and Y
+	int board[7][6]; // the board X = 7 and Y = 6
 
 //## FILL ##
 	for (int i = 0; i <= 6; i++) //fill it goes through Y
@@ -18,9 +18,9 @@ int main()
 
 //## PRINT ##
 
-	for (int i = 0; i <= 5; i++) 
+	for (int i = 0; i <= 5; i++) //x
 	{
-		for (int j = 0; j <= 6; j++)
+		for (int j = 0; j <= 6; j++) //then y
 		{
 			
 			std::cout << board[i][j];
@@ -39,13 +39,19 @@ int main()
 	//		If the 3 tiles diagonally to the right and up match the current tile, return true
 	//		If the tile is empty, CONTINUE(jump out of Y for loop into X at next X pos)
 
-
-//	for(int i;i<=6;i++) //check it
+	for (int i = 0; i <= 5; i++) //x
 	{
-//		for(int j;j <= 5;j++)
+		for (int j = 5; j >= 0; j--) //then y
 		{
-			
-		}
+			//If the next 3 tiles to the right match the current tile, return true
+			if (board[i][j] == board[i + 1][j]) { if (board[i][j] == board[i + 2][j]) { return 1; } }
+			//If the 3 tiles to the above match the current tile, return true
+			if (board[i][j] == board[i][j+1]) { if (board[i][j] == board[i][j + 2]) { return 1; } }
+			//If the 3 tiles diagonally to the right and down match the current tile, return true
+			if (board[i][j] == board[i+1][j-1]) { if (board[i][j] == board[i+2][j + 2]) { return 1; } }
+
+		} 
+		
 	}
 
 
