@@ -3,9 +3,29 @@
 #include <cstdlib>
 #include <iostream>
 
+int board[7][6]; // the board X = 7 and Y = 6
+
+bool option4(){
+	for (int i = 0; i <= 5; i++) //x
+	{
+		for (int j = 5; j >= 0; j--) //then y
+		{
+			//If the next 3 tiles to the right match the current tile, return true
+			if (board[i][j] == board[i + 1][j]) { if (board[i][j] == board[i + 2][j]) { return 1; } }
+			//If the 3 tiles to the above match the current tile, return true
+			if (board[i][j] == board[i][j + 1]) { if (board[i][j] == board[i][j + 2]) { return 1; } }
+			//If the 3 tiles diagonally to the right and down match the current tile, return true
+			if (board[i][j] == board[i + 1][j - 1]) { if (board[i][j] == board[i + 2][j - 2]) { return 1; } }
+			//If the 3 tiles diagonally to the right and up match the current tile, return true
+			if (board[i][j] == board[i + 1][j + 1]) { if (board[i][j] == board[i + 2][j + 2]) { return 1; } }
+		}
+
+	}
+};
+
 int main()
 {
-	int board[7][6]; // the board X = 7 and Y = 6
+	
 
 //## FILL ##
 	for (int i = 0; i <= 6; i++) //fill it goes through Y
@@ -27,7 +47,7 @@ int main()
 		}
 		std::cout << std::endl;
 	}
-
+	std::cout << "is there a match if so 1 " << std::endl;
 //## CHECK ##
 	//Option 4
     //	checkForWin()
@@ -39,20 +59,9 @@ int main()
 	//		If the 3 tiles diagonally to the right and up match the current tile, return true
 	//		If the tile is empty, CONTINUE(jump out of Y for loop into X at next X pos)
 
-	for (int i = 0; i <= 5; i++) //x
-	{
-		for (int j = 5; j >= 0; j--) //then y
-		{
-			//If the next 3 tiles to the right match the current tile, return true
-			if (board[i][j] == board[i + 1][j]) { if (board[i][j] == board[i + 2][j]) { return 1; } }
-			//If the 3 tiles to the above match the current tile, return true
-			if (board[i][j] == board[i][j+1]) { if (board[i][j] == board[i][j + 2]) { return 1; } }
-			//If the 3 tiles diagonally to the right and down match the current tile, return true
-			if (board[i][j] == board[i+1][j-1]) { if (board[i][j] == board[i+2][j + 2]) { return 1; } }
 
-		} 
-		
-	}
+	std::cout << "is there a match using option 4? " << option4() << std::endl;
+	
 
 
 	system("pause");
