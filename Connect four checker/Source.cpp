@@ -4,23 +4,52 @@
 #include <iostream>
 
 int board[7][6]; // the board X = 7 and Y = 6
-
+int testboard[7][6] = {{1,2,3,4,5,6},{7,8,9,10,11,12,},{13,14,15,16,17,18},{19,20,21,22,23,24},{25,26,27,28,29,30},{31,32,33,34,35,36},{37,38,39,40,41,42}}; //
 bool option4(){
-	for (int i = 0; i <= 5; i++) //x
+	int numofwincons = 0;
+
+	for (int i = 0; i <= 6; i++) //x
 	{
-		for (int j = 5; j >= 0; j--) //then y
+		for (int j = 5; j >= -1; j--) //then y
 		{
 			//If the next 3 tiles to the right match the current tile, return true
-			if (board[i][j] == board[i + 1][j]) { if (board[i][j] == board[i + 2][j]) { return 1; } }
+			if (board[i][j] == board[i + 1][j])
+			{
+				if (board[i][j] == board[i + 2][j])
+				{
+					std::cout << "for grid ref  " << i+1 << "  " << j+1 << std::endl; numofwincons++;
+				}
+			}
 			//If the 3 tiles to the above match the current tile, return true
-			if (board[i][j] == board[i][j + 1]) { if (board[i][j] == board[i][j + 2]) { return 1; } }
+			if (board[i][j] == board[i][j + 1])
+			{
+				if (board[i][j] == board[i][j + 2])
+				{
+					std::cout << "for grid ref  " << i+1 << "  " << j+1 << std::endl; numofwincons++;
+				}
+			}
 			//If the 3 tiles diagonally to the right and down match the current tile, return true
-			if (board[i][j] == board[i + 1][j - 1]) { if (board[i][j] == board[i + 2][j - 2]) { return 1; } }
+			if (board[i][j] == board[i + 1][j - 1])
+			{
+				if (board[i][j] == board[i + 2][j - 2])
+				{
+					std::cout << "for grid ref  " << i+1 << "  " << j+1 << std::endl; numofwincons++;
+				}
+			}
 			//If the 3 tiles diagonally to the right and up match the current tile, return true
-			if (board[i][j] == board[i + 1][j + 1]) { if (board[i][j] == board[i + 2][j + 2]) { return 1; } }
+			if (board[i][j] == board[i + 1][j + 1])
+			{
+				if (board[i][j] == board[i + 2][j + 2])
+				{
+					std::cout << "for grid ref  " << i+1 << "  " << j+1 << std::endl; numofwincons++;
+				}
+			}
+			
 		}
 
 	}
+	if(numofwincons >= 0) 
+	{ return 1; }
 };
 
 int main()
@@ -58,9 +87,7 @@ int main()
 	//		If the 3 tiles diagonally to the right and down match the current tile, return true
 	//		If the 3 tiles diagonally to the right and up match the current tile, return true
 	//		If the tile is empty, CONTINUE(jump out of Y for loop into X at next X pos)
-
-
-	std::cout << "is there a match using option 4? " << option4() << std::endl;
+std::cout << "is there a match using option 4? " << option4() << std::endl;
 	
 
 
